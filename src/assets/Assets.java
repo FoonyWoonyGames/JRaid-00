@@ -1,0 +1,43 @@
+package assets;
+
+import static org.lwjgl.opengl.GL11.glRotatef;
+
+import render.Model;
+
+public class Assets {
+
+	protected static Model model;
+	
+	public static Model getModel() {
+		return model;
+	}
+
+	public static void initAsset() {
+		float[] vertices = new float[] {
+				-1f, 1f, 0,
+				1f, 1f, 0,
+				1f, -1f, 0,
+				-1f, -1f, 0
+				
+		};
+		
+		float[] texture = new float[] {
+				0,0,
+				1,0,
+				1,1,
+				0,1
+		};
+		
+		int[] indices = new int[] {
+			0,1,2,
+			2,3,0
+		};
+		
+
+		model = new Model(vertices, texture, indices);
+	}
+	
+	public static void deleteAsset() {
+		model = null;
+	}
+}
